@@ -1,2 +1,8 @@
-# stateful-api
-ランタイム環境が必要な各種アプリケーションのバックエンドをまとめた汎用API
+```
+npm install
+npm run dev
+```
+
+```
+open http://localhost:3000
+```
