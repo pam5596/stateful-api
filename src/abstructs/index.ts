@@ -1,0 +1,1 @@
+export { BaseError } from "./error.abstruct"
