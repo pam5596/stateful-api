@@ -2,9 +2,9 @@
   "name": "app",
   "type": "module",
   "scripts": {
-    "dev": "tsx watch src/index.ts",
+    "dev": "tsx watch src/server.ts",
     "build": "tsc",
-    "start": "node dist/index.js",
+    "start": "node dist/server.js",
     "test": "vitest",
     "lint": "eslint"
   },
@@ -13,6 +13,7 @@
     "@hono/zod-validator": "^0.9.0",
     "@intlify/hono": "^2.1.2",
     "hono": "^4.12.31",
+    "socket.io": "^4.8.3",
     "zod": "^4.4.3"
   },
   "devDependencies": {

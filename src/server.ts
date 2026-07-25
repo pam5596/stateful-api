@@ -5,11 +5,11 @@ import applications from './applications'
 import { useMiddlewares } from "./middlewares"
 
 const app = new Hono()
-
-app.route("/", applications)
 useMiddlewares(app)
 
-serve({
+app.route("/", applications)
+
+export const server = serve({
   fetch: app.fetch,
   port: 5000
 }, (info) => {
