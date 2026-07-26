@@ -1,0 +1,1 @@
+export { SocketIOLiveChatAuthModel } from "./socket.io_livechat_auth.model"
