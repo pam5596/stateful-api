@@ -1,16 +1,15 @@
 import type { BaseService } from "@abstructs";
 import type { SocketIOClient, LiveChatManagerClient, MHGMAPIClient } from "@clients";
 import type { SocketIOLivechatAuth } from "../types/socket.io_livechat.auth";
-import type { SocketIOLiveChatAuthModel } from "../models";
 
-export class SocketIOLivechatService implements BaseService<SocketIOLiveChatAuthModel, void> {
+export class SocketIOLivechatService implements BaseService<undefined, void> {
   constructor(
     public socketIOClient: SocketIOClient,
     public liveChatManagerClient: LiveChatManagerClient,
     public mhgmAPIClient: MHGMAPIClient
   ) {}
 
-  async execute(req: SocketIOLiveChatAuthModel) {
+  execute() {
     this.socketIOClient.of("/live-chat").on("connection", async (socket) => {
       console.log('[Socket.io]Client connected:', socket.id)
       const { user_id, stream_id, channel_id, broadcast_id } = socket.handshake.auth as SocketIOLivechatAuth
