@@ -1,11 +1,9 @@
 import { Hono } from "hono";
 import { useMiddlewares } from "./middlewares";
+import { defineRoutes } from "./routes";
 
 const mhgm = new Hono().basePath("/mhgm")
 useMiddlewares(mhgm)
-
-mhgm.get('/', (c) => {
-  return c.text("MHGM")
-})
+defineRoutes(mhgm)
 
 export default mhgm
