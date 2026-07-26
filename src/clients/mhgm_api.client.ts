@@ -19,7 +19,7 @@ export class MHGMAPIClient {
     name: string,
     avatar: string
   }) {
-    return callAPIHandler(async () => {
+    return await callAPIHandler(async () => {
       return await this.axios.put<{ 
         id: number 
       }>(
@@ -32,15 +32,17 @@ export class MHGMAPIClient {
   async get_user_keywords(req: {
     user_id: number
   }) {
-    return await this.axios.get<{ 
-      keywords: {
-        id: number,
-        keyword: string,
-        action: string
-      }[]
-    }>(
-      `/users/${req.user_id}/keywords`
-    )
+    return await callAPIHandler(async () => {
+      return await this.axios.get<{ 
+        keywords: {
+          id: number,
+          keyword: string,
+          action: string
+        }[]
+      }>(
+        `/users/${req.user_id}/keywords`
+      )
+    })
   }
 
   async post_action_log(req: {
@@ -49,11 +51,13 @@ export class MHGMAPIClient {
     broadcast_id: number,
     keyword_id: number
   }) {
-    return await this.axios.post<{
-      id: number
-    }>(
-      "/action-logs",
-      req
-    )
+    return await callAPIHandler(async () => {
+      return await this.axios.post<{
+        id: number
+      }>(
+        "/action-logs",
+        req
+      )
+    })
   }
 }

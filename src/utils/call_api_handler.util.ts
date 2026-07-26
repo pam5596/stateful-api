@@ -3,7 +3,7 @@ import axios, { type AxiosResponse } from "axios"
 import type { ContentfulStatusCode } from "hono/utils/http-status"
 import { UnknownError } from "../errors/unknown.error"
 
-export const callAPIHandler = async (callAPIFnc: () => Promise<AxiosResponse>) => {
+export const callAPIHandler = async <Res>(callAPIFnc: () => Promise<AxiosResponse<Res>>) => {
   try {
     return await callAPIFnc()
   } catch(e) {
