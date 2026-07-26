@@ -1,6 +1,6 @@
 import type { Hono } from "hono";
-import { socketIOLivechatService } from "./socket.io_livechat.route";
+import { socket_io_live_chat_route } from "./socket.io_livechat.route";
 
 export const defineRoutes = (mhgm: Hono) => {
-  socketIOLivechatService.execute()
+  socket_io_live_chat_route()
 }
