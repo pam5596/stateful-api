@@ -1,13 +1,13 @@
-import { Server as SocketIOServer } from "socket.io";
+import { Server as SocketIOServer, type ServerOptions } from "socket.io";
 import type { ServerType } from "@hono/node-server";
+import type { Server as HTTPServer } from "node:http";
 
 export class SocketIOClient extends SocketIOServer {
-  constructor(server: ServerType) {
-    super(
-      server, {
-        cors: {
-          origin: '*'
-        }
-      })
+  constructor(opts?: Partial<ServerOptions>) {
+    super(opts)
+  }
+
+  public attachTo(server: ServerType) {
+    this.attach(server as HTTPServer)
   }
 }

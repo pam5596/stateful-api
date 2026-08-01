@@ -3,6 +3,7 @@ import { Hono } from 'hono'
 
 import applications from './applications'
 import { useMiddlewares } from "./middlewares"
+import { socketIOClient } from "@instances"
 
 const app = new Hono()
 useMiddlewares(app)
@@ -15,3 +16,5 @@ export const server = serve({
 }, (info) => {
   console.log(`Server is running on http://localhost:${info.port}`)
 })
+
+socketIOClient.attachTo(server)

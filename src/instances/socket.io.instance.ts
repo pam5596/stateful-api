@@ -1,4 +1,8 @@
 import { SocketIOClient } from "@clients";
-import { server } from "../server";
 
-export const socketIOClient = new SocketIOClient(server)
+export const socketIOClient = new SocketIOClient({
+  path: "/socket.io",
+  cors: {
+    origin: '*'
+  }
+})
