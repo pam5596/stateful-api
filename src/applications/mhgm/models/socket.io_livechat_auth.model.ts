@@ -7,10 +7,10 @@ export class SocketIOLiveChatAuthModel extends BaseModel<SocketIOLivechatAuth> {
     super(
       values, 
       z.strictObject({
-        user_id: z.int(),
+        user_id: z.number(),
         channel_id: z.string(),
         stream_id: z.string(),
-        broadcast_id: z.int()
+        broadcast_id: z.number()
       })
     )
   }
