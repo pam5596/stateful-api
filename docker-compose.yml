@@ -1,11 +1,11 @@
 version: '3'
 
 services:
-  app:
+  stateful-api:
     build:
       context: .
       dockerfile: Dockerfile.dev
     ports:
       - 5000:5000
     volumes:
-      - .:/app
+      - .:/stateful-api

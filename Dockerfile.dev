@@ -1,10 +1,10 @@
 FROM node:24
 
-WORKDIR /app
-COPY . /app
+WORKDIR /stateful-api
+COPY . /stateful-api
 EXPOSE 5000
 
-ENTRYPOINT ["/app/entrypoint.dev.sh"]
+ENTRYPOINT ["/stateful-api/entrypoint.dev.sh"]
 
 CMD ["npm", "run", "dev"]
 # CMD ["sh"]
