@@ -1,8 +1,8 @@
 import { expect, test } from 'vitest'
-import { WebhooksMemberPOSTRequestModel } from '../../../../src/applications/mhgm/models/public_webhooks_member.post.req.model'
+import { PublicWebhooksMemberPOSTRequestModel } from '../../../../src/applications/mhgm/models/public_webhooks_member.post.req.model'
 
-test('WebhooksMemberPOSTRequestModelモデルの単体テスト', () => {
-  expect(() => new WebhooksMemberPOSTRequestModel({
+test('PublicWebhooksMemberPOSTRequestModelモデルの単体テスト', () => {
+  expect(() => new PublicWebhooksMemberPOSTRequestModel({
     body: {
       streamer: {
         channel_id: "string",

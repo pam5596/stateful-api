@@ -1,9 +1,9 @@
 import { BaseModel } from "@abstructs";
-import type { WebhooksMemberPOSTRequest } from "../types/public_webhooks_member.post.req";
+import type { PublicWebhooksMemberPOSTRequest } from "../types/public_webhooks_member.post.req";
 import z from "zod";
 
-export class WebhooksMemberPOSTRequestModel extends BaseModel<WebhooksMemberPOSTRequest> {
-  constructor(values: WebhooksMemberPOSTRequest) {
+export class PublicWebhooksMemberPOSTRequestModel extends BaseModel<PublicWebhooksMemberPOSTRequest> {
+  constructor(values: PublicWebhooksMemberPOSTRequest) {
     super(
       values,
       z.strictObject({

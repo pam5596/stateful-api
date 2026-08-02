@@ -1,4 +1,4 @@
-export interface WebhooksMemberPOSTRequest {
+export interface PublicWebhooksMemberPOSTRequest {
   body: {
     streamer: {
       channel_id: string,
