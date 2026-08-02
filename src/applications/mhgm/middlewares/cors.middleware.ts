@@ -1,7 +1,7 @@
 import { cors } from "hono/cors";
 
 export const corsMiddleware = cors({
-  allowHeaders: ["X-Mhgm-Api-key"],
+  allowHeaders: ["x-mhgm-api-key"],
   origin: [
     process.env.MHGM_BASE_URL!,
   ],
