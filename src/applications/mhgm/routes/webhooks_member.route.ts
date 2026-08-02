@@ -3,7 +3,7 @@ import { WebhooksMemberPOSTService } from "../services/public_webhooks_member.po
 import { socketIOClient } from "@instances";
 import { WebhooksMemberPOSTRequestModel } from "../models";
 
-export const webhooks_member_route = async (mhgm: Hono) => {
+export const webhooksMemberRoutes = async (mhgm: Hono) => {
   mhgm.post('/webhooks/member', async (c) => {
     const body = await c.req.json()
 
