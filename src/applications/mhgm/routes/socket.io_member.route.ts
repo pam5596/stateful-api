@@ -1,6 +1,6 @@
 import { socketIOClient } from "@instances";
 
-export const socketIOMemberRoutes = async () => {
+export const socketIOMemberRoutes = () => {
   socketIOClient.of("/member").on("connection", async (socket) => {
     console.log('[Socket.io]Client connected:', socket.id)
 

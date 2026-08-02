@@ -3,7 +3,7 @@ import { SocketIOLivechatService } from "../services";
 import type { SocketIOLivechatAuth } from "../types/socket.io_livechat.auth";
 import { SocketIOLiveChatAuthModel } from "../models";
 
-export const socketIOLivechatRoutes = async () => {
+export const socketIOLivechatRoutes = () => {
   socketIOClient.of("/live-chat").on("connection", async (socket) => {
     const socketIOLivechatService = new SocketIOLivechatService(
       socket,
