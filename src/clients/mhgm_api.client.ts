@@ -9,7 +9,7 @@ export class MHGMAPIClient {
     private base_url: string
   ) {
     this.axios = axios.create({
-      baseURL: base_url,
+      baseURL: `${base_url}/api/private`,
       headers: { "x-api-key": api_key }
     })
   }
