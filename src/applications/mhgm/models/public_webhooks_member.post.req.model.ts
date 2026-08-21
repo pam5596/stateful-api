@@ -11,16 +11,30 @@ export class PublicWebhooksMemberPOSTRequestModel extends BaseModel<PublicWebhoo
           streamer: z.strictObject({
             channel_id: z.string(),
             avatar: z.string(),
-            name: z.string()
+            name: z.string(),
+            wait_quests: z.int()
           }),
-          users: z.array(
+          join: z.array(
             z.strictObject({
               channel_id: z.string(),
               avatar: z.string(),
               name: z.string(),
-              status: z.string(),
-              join_quests: z.int(),
+              join_quests: z.int()
+            })
+          ),
+          wait: z.array(
+            z.strictObject({
+              channel_id: z.string(),
+              avatar: z.string(),
+              name: z.string(),
               wait_quests: z.int()
+            })
+          ),
+          next: z.array(
+            z.strictObject({
+              channel_id: z.string(),
+              avatar: z.string(),
+              name: z.string()
             })
           )
         })
