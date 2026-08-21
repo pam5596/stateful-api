@@ -16,7 +16,7 @@ app.route("/", applications)
 
 const server = serve({
   fetch: app.fetch,
-  port: 5000
+  port: 8000
 }, (info) => {
   console.log(`Server is running on http://localhost:${info.port}`)
 })
