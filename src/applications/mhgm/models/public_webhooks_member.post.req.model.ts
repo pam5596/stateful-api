@@ -12,7 +12,6 @@ export class PublicWebhooksMemberPOSTRequestModel extends BaseModel<PublicWebhoo
             channel_id: z.string(),
             avatar: z.string(),
             name: z.string(),
-            wait_quests: z.int()
           }),
           join: z.array(
             z.strictObject({
