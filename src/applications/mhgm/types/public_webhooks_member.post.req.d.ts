@@ -1,17 +1,26 @@
-export interface WebhooksMemberPOSTRequest {
+export interface PublicWebhooksMemberPOSTRequest {
   body: {
     streamer: {
       channel_id: string,
       avatar: string,
-      name: string
+      name: string,
     },
-    users: {
+    join: {
       channel_id: string,
       avatar: string,
       name: string,
-      status: string,
       join_quests: number,
-      wait_quests: number
+    }[],
+    wait: {
+      channel_id: string,
+      avatar: string,
+      name: string,
+      wait_quests: number,
+    }[],
+    next: {
+      channel_id: string,
+      avatar: string,
+      name: string
     }[]
   }
 }

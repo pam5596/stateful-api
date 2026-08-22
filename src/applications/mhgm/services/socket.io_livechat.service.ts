@@ -37,6 +37,7 @@ export class SocketIOLivechatService implements BaseService<SocketIOLiveChatAuth
 
         this.socket.emit(`emit-${channel_id}`, {
           user: {
+            id: user_id,
             channel_id: chat.author.channelId,
             name: chat.author.name,
             avatar: chat.author.thumbnail?.url,

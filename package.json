@@ -12,6 +12,7 @@
     "@hono/node-server": "^2.0.11",
     "@intlify/hono": "^2.1.2",
     "axios": "^1.18.1",
+    "dotenv": "^17.4.2",
     "hono": "^4.12.31",
     "socket.io": "^4.8.3",
     "youtube-chat": "^2.2.0",
