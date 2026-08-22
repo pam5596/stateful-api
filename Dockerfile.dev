@@ -1,0 +1,10 @@
+FROM node:24
+
+WORKDIR /app
+COPY . /app
+EXPOSE 8000
+
+ENTRYPOINT ["/app/entrypoint.dev.sh"]
+
+CMD ["npm", "run", "dev"]
+# CMD ["sh"]

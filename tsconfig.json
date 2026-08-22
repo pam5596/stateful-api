@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "strict": true,
+    "verbatimModuleSyntax": true,
+    "skipLibCheck": true,
+    "types": [
+      "node"
+    ],
+    "jsx": "react-jsx",
+    "jsxImportSource": "hono/jsx",
+    "rootDir": "./src",
+    "outDir": "./dist",
+    "paths": {
+      "@utils": ["./src/utils"],
+      "@abstructs": ["./src/abstructs"],
+      "@errors": ["./src/errors"],
+      "@locales": ["./src/locales"],
+      "@clients": ["./src/clients"],
+      "@instances": ["./src/instances"],
+    }
+  },
+  "include": ["src", "test"],
+  "exclude": ["node_modules"]
+}
