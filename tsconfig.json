@@ -16,7 +16,9 @@
       "@utils": ["./src/utils"],
       "@abstructs": ["./src/abstructs"],
       "@errors": ["./src/errors"],
-      "@locales": ["./src/locales"]
+      "@locales": ["./src/locales"],
+      "@clients": ["./src/clients"],
+      "@instances": ["./src/instances"],
     }
   },
   "include": ["src", "test"],
