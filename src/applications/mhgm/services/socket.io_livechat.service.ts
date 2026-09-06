@@ -29,13 +29,6 @@ export class SocketIOLivechatService implements BaseService<SocketIOLiveChatAuth
           avatar: chat.author.thumbnail!.url,
         })).data.id
 
-        await this.mhgmAPIClient.post_action_log({
-          message,
-          user_id,
-          broadcast_id,
-          keyword_id: keyword.id
-        })
-
         this.socket.emit(`emit-${channel_id}`, {
           user: {
             id: user_id,
