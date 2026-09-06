@@ -15,7 +15,7 @@ export class SocketIOLivechatService implements BaseService<SocketIOLiveChatAuth
 
     const keywords = (await this.mhgmAPIClient.get_user_keywords({ user_id })).data
 
-    this.liveChatManagerClient.subscribe(
+    await this.liveChatManagerClient.subscribe(
       stream_id, 
       async (chat) => {
         const first_message = chat.message[0]
