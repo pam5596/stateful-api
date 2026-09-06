@@ -25,7 +25,6 @@ export class SocketIOLivechatService implements BaseService<SocketIOLiveChatAuth
         const user_id = (await this.mhgmAPIClient.put_user({
           channel_id: chat.author.channelId,
           name: chat.author.name,
-          // [!] デフォルトアイコンを用意しても良さそう
           avatar: chat.author.thumbnail!.url,
         })).data.id
 
@@ -36,11 +35,12 @@ export class SocketIOLivechatService implements BaseService<SocketIOLiveChatAuth
             name: chat.author.name,
             avatar: chat.author.thumbnail?.url,
           },
-          chat: {
-            message,
+          keyword: {
+            id: keyword.id,
+            keyword: keyword.keyword,
             action: keyword.action,
-            keyword: keyword.keyword
-          }
+          },
+          message
         })
       }
     })
