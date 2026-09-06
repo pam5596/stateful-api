@@ -20,7 +20,7 @@ export class SocketIOLivechatService implements BaseService<SocketIOLiveChatAuth
       async (chat) => {
         const first_message = chat.message[0]
         const message = "text" in first_message ? first_message.text : undefined
-        const keyword = message ? keywords.keywords.find(k => k.keyword === message) : undefined
+        const keyword = message ? keywords.keywords.find(k => message.includes(k.keyword)) : undefined
         const is_not_streamer = chat.author.channelId !== channel_id
 
         if (message && keyword && is_not_streamer) {
