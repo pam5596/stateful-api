@@ -24,9 +24,21 @@ axios.interceptors.request.use((config) => {
   return config
 })
 
-axios.interceptors.response.use((response) => {  if (response.config?.url?.includes("youtube.com")) {
-    console.log("[YouTube] final URL:", response.request?.res?.responseUrl)
-    console.log("[YouTube] body head:", String(response.data).slice(0, 200))
+axios.interceptors.response.use((response) => {  
+  if (response.config?.url?.includes("youtube.com")) {
+    const data = String(response.data)
+
+    const canonicalMatch = data.match(/<link rel="canonical" href="([^"]*)">/)
+    const titleMatch = data.match(/<title>([^<]*)<\/title>/)
+    const playabilityMatch = data.match(/"playabilityStatus":\{"status":"([^"]+)","reason":"([^"]*)"/)
+
+    console.log("[YouTube diag]", {
+      canonical: canonicalMatch?.[1] ?? "（見つからず）",
+      title: titleMatch?.[1],
+      playability: playabilityMatch
+        ? { status: playabilityMatch[1], reason: playabilityMatch[2] }
+        : "（見つからず）",
+    })
   }
   return response
 })
