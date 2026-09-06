@@ -11,7 +11,7 @@ export class SocketIOLivechatService implements BaseService<SocketIOLiveChatAuth
   ) {}
 
   async execute(req: SocketIOLiveChatAuthModel) {
-    const { user_id, stream_id, channel_id, broadcast_id } = req.values
+    const { user_id, stream_id, channel_id } = req.values
 
     const keywords = (await this.mhgmAPIClient.get_user_keywords({ user_id })).data
 
