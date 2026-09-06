@@ -48,6 +48,7 @@ export class SocketIOLivechatService implements BaseService<SocketIOLiveChatAuth
       },
       async (error) => {
         this.socket.emit(`error-${channel_id}`, error)
+        console.error(error)
       }
     )
   }
