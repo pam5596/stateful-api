@@ -11,7 +11,7 @@ export class SocketIOLivechatService implements BaseService<SocketIOLiveChatAuth
   ) {}
 
   async execute(req: SocketIOLiveChatAuthModel) {
-    const { user_id, stream_id, channel_id, broadcast_id } = req.values
+    const { user_id, stream_id, channel_id } = req.values
 
     const keywords = (await this.mhgmAPIClient.get_user_keywords({ user_id })).data
 
@@ -25,16 +25,8 @@ export class SocketIOLivechatService implements BaseService<SocketIOLiveChatAuth
         const user_id = (await this.mhgmAPIClient.put_user({
           channel_id: chat.author.channelId,
           name: chat.author.name,
-          // [!] デフォルトアイコンを用意しても良さそう
           avatar: chat.author.thumbnail!.url,
         })).data.id
-
-        await this.mhgmAPIClient.post_action_log({
-          message,
-          user_id,
-          broadcast_id,
-          keyword_id: keyword.id
-        })
 
         this.socket.emit(`emit-${channel_id}`, {
           user: {
@@ -43,11 +35,12 @@ export class SocketIOLivechatService implements BaseService<SocketIOLiveChatAuth
             name: chat.author.name,
             avatar: chat.author.thumbnail?.url,
           },
-          chat: {
-            message,
+          keyword: {
+            id: keyword.id,
+            keyword: keyword.keyword,
             action: keyword.action,
-            keyword: keyword.keyword
-          }
+          },
+          message
         })
       }
     })

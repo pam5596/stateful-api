@@ -44,20 +44,4 @@ export class MHGMAPIClient {
       )
     })
   }
-
-  async post_action_log(req: {
-    message: string,
-    user_id: number,
-    broadcast_id: number,
-    keyword_id: number
-  }) {
-    return await callAPIHandler(async () => {
-      return await this.axios.post<{
-        id: number
-      }>(
-        "/action-logs",
-        req
-      )
-    })
-  }
 }

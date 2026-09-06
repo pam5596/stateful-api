@@ -6,6 +6,5 @@ test('SocketIOLiveChatAuthModelモデルの単体テスト', () => {
     user_id: 1,
     channel_id: 'channel-1',
     stream_id: 'stream-1',
-    broadcast_id: 2,
   })).not.toThrow()
 })
