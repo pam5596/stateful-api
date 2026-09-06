@@ -5,13 +5,15 @@ import { UnknownError } from "../errors/unknown.error";
 export class LiveChatManagerClient {
   private pool = new Map<string, LiveChat>();
 
-	async subscribe(stream_id: string, onChatCallback: (chat: ChatItem) => void) {
+	async subscribe(
+    stream_id: string, 
+    onChatCallback: (chat: ChatItem) => void,
+    onErrorCallback: (error: unknown) => void
+  ) {
 		if (!this.pool.has(stream_id)) {
       const client = new LiveChat({ liveId: stream_id });
       client.on("chat", onChatCallback);
-      client.on("error", (error) => {
-        throw new UnknownError(error, this.constructor.name);
-      });
+      client.on("error", onErrorCallback);
   
       const is_started = await client.start();
       if (is_started) {
