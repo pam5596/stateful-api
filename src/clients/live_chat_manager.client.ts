@@ -16,11 +16,7 @@ export class LiveChatManagerClient {
       client.on("error", onErrorCallback);
   
       const is_started = await client.start();
-      if (is_started) {
-        this.pool.set(stream_id, client);
-      } else {
-        throw new UnknownError(client, this.constructor.name);
-      }
+      if (is_started) this.pool.set(stream_id, client);
     }
 	}
 

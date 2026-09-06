@@ -1,3 +1,1 @@
-import { axiosPatch } from "./axios_patch.plugin";
-
-axiosPatch()
+import "./axios_patch.plugin"
